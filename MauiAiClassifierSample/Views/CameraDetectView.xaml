@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAiClassifierSample.CameraDetectView" xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <Grid RowDefinitions="200,*,Auto,Auto" ColumnDefinitions="*,*">
+        <toolkit:CameraView
+           x:Name="Camera"
+           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3"
+           CameraFlashMode="{Binding FlashMode}"
+           ZoomFactor="{Binding CurrentZoom}"
+           ImageCaptureResolution="{Binding SelectedResolution}"
+           SelectedCamera="{Binding SelectedCamera}"/>
+
+            <Frame Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" BackgroundColor="LightBlue"  HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding TagName}" />
+
+            </Frame>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Black">
+
+                <Button Margin="10" Command="{Binding DoClassifyCommand}" 
+                       Text="Classify"/>
+        </Grid>
+    </Grid>
+
+
+
+</ContentPage>
